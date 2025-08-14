@@ -1,35 +1,55 @@
 @import './base.css';
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
-}
-
-a,
-.green {
+/* Links */
+a {
+  color: var(--primary);
   text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+}
+a:hover { text-decoration: underline; }
+
+/* Buttons */
+.btn {
+  --btn-bg: var(--color-background);
+  --btn-fg: var(--color-text);
+  --btn-border: var(--color-border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.55rem 0.85rem;
+  border-radius: 10px;
+  border: 1px solid var(--btn-border);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  cursor: pointer;
+  transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+  font-weight: 600;
+}
+.btn:hover {
+  border-color: var(--color-border-hover);
+}
+.btn.small {
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+.btn.primary {
+  --btn-bg: var(--primary);
+  --btn-fg: #fff;
+  --btn-border: var(--primary);
+}
+.btn.primary:hover {
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--primary) 25%, transparent);
+}
+.btn.secondary {
+  --btn-bg: color-mix(in srgb, var(--secondary) 10%, #ffffff);
+  --btn-fg: var(--vt-c-text-light-1);
+  --btn-border: color-mix(in srgb, var(--secondary) 30%, #cbd5e1);
+}
+.btn.accent {
+  --btn-bg: var(--accent);
+  --btn-fg: #0b1220;
+  --btn-border: var(--accent);
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
-}
+/* Utility spacing for forms and containers can be handled locally */
